@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.env
+*.log
+
+# Test/output artifacts
+/test_*.json
+/sources/
+/screened/
+/extracted/
+/figures/
+*.pdf
+!docs/*.pdf
