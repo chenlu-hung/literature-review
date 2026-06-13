@@ -17,7 +17,7 @@ def fetch_page(query: str, per_page: int, cursor: str, year_start: int, year_end
         filters.append(f"from_publication_date:{year_start}-01-01")
     if year_end:
         filters.append(f"to_publication_date:{year_end}-12-31")
-    filters.append("type:article")
+    filters.append("type:article|proceedings-article")
 
     params = {
         "search": query,

@@ -120,6 +120,31 @@ python scripts/search_crossref.py "high dimensional variable selection" \
     --output sources/crossref_varsel.json
 ```
 
+#### Optional Source 5: PubMed (biostatistics + statistics journals)
+
+For reviews touching biostatistics or statistical methodology published in journals
+like *Biometrics*, *Biostatistics*, *Statistics in Medicine*, *JASA* (applications section),
+or *Statistical Methods in Medical Research*. PubMed covers these comprehensively
+and returns full abstracts even for paywalled articles.
+
+```bash
+python scripts/search_pubmed.py "variable selection penalized regression" \
+    --year-start 2000 --year-end 2025 \
+    --max-results 200 \
+    --output sources/pubmed_varsel.json
+```
+
+PubMed supports field-tagged queries for precision:
+- `[Title]` — search title only (reduces noise)
+- `[MeSH Terms]` — Medical Subject Headings (controlled vocabulary)
+- `[Journal]` — restrict to a specific journal
+- `[Author]` — author name
+
+Example: `"LASSO[Title] AND (statistics[MeSH] OR regression[MeSH])"`
+
+**Limitation**: PubMed does not expose citation counts. After retrieval, enrich
+citation data by matching on DOI via Semantic Scholar's `externalIds.PubMed` field.
+
 #### Document the search
 
 For each query, save the exact query string, date, source, and result count. This is required for survey papers.
