@@ -13,7 +13,7 @@ Given a research topic, this skill guides Claude through 8 phases:
 3. **Screening + deduplication** — Title → abstract → full-text with PRISMA flow tracking
 4. **Data extraction** — ML-specific schema capturing method, dataset, code link, compute, seeds
 5. **Quality assessment** — 6-dimensional reproducibility score (0–18) per paper
-6. **Thematic synthesis** — Organized by method family, not paper-by-paper; benchmark comparison table
+6. **Thematic synthesis** — Organized by method family, not paper-by-paper; benchmark comparison table; AI-tell prose pass so the writing doesn't read as machine-generated
 7. **Citation verification** — Every arXiv ID and DOI is resolved against arXiv/CrossRef; mismatched metadata flagged
 8. **PDF generation** — pandoc + xelatex with APA / Nature / IEEE / ACM / Vancouver styles
 
@@ -126,7 +126,8 @@ literature-review-ml/
 ├── references/
 │   ├── ml_venues.md                  # ML / stats / SciML venue tiers
 │   ├── search_strategies.md          # arXiv categories, S2 / OpenAlex tips
-│   └── citation_styles.md            # APA / Nature / IEEE / ACM / Vancouver
+│   ├── citation_styles.md            # APA / Nature / IEEE / ACM / Vancouver
+│   └── prose_hygiene.md              # AI-tell checklist for survey prose (stop-slop, adapted)
 └── scripts/
     ├── search_arxiv.py
     ├── search_semantic_scholar.py

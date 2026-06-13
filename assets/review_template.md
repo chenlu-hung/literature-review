@@ -127,6 +127,8 @@ We organized findings thematically by **method family** (Section 3) and by **pro
 
 [Organize ~3–6 themes. For each, synthesize across multiple papers. Avoid per-paper summaries.]
 
+[Prose: run `references/prose_hygiene.md` on every paragraph — attribute claims to named papers (not "the literature shows"), cut puffery ("seminal", "groundbreaking"), name specific gaps (not "challenges remain"), and break the "Author et al. propose…" cadence.]
+
 ## 3.1 [Family 1: e.g., Spectral methods]
 
 [Conceptual description of the family. Key foundational paper(s). Evolution. Strengths and limitations as a family.]

@@ -281,6 +281,14 @@ For each theme:
 
 Annotate the table with footnotes when reported numbers come from different sources / settings.
 
+**Prose hygiene (avoid AI-tell writing).** Synthesis prose is where a review most often
+reads as machine-generated. After drafting each thematic subsection, run the AI-tell pass
+in `references/prose_hygiene.md` (or the `stop-slop` skill if installed). The worst
+offenders in surveys: field-level false agency ("the literature reveals" → name the
+papers), puffery adjectives ("seminal", "groundbreaking"), vague gap statements
+("challenges remain" → name the specific gap), and monotone paper-by-paper sentence
+cadence ("Smith et al. propose… Jones et al. propose…").
+
 ---
 
 ### Phase 7: Citation Verification
@@ -324,6 +332,7 @@ For ML survey papers, `nature` (superscript) or `acm` (numbered brackets) are mo
 - [ ] Reproducibility assessment for each paper
 - [ ] At least one benchmark comparison table (if applicable)
 - [ ] Results organized thematically, not study-by-study
+- [ ] Prose passes the AI-tell check (`references/prose_hygiene.md`) — no field-level false agency, puffery, vague gaps, or paper-by-paper cadence
 - [ ] Limitations of the review itself acknowledged
 - [ ] Search end-date stated explicitly in methodology
 
@@ -384,6 +393,7 @@ Always prefer `influentialCitationCount` (Semantic Scholar's metric) over raw ci
 3. **Flag unfair comparisons explicitly** — different splits, different compute budgets
 4. **Distinguish theoretical from empirical contributions** — many ML papers conflate these
 5. **Track method genealogy** — who extended whom (e.g., FNO → AFNO → FFNO → GINO)
+6. **No AI-tell prose** — run `references/prose_hygiene.md`: attribute claims to named papers instead of "the literature shows", cut puffery adjectives, name specific gaps
 
 ### Reproducibility
 1. **Report code availability per paper** — central to ML; missing in most biomed reviews
@@ -403,6 +413,7 @@ Always prefer `influentialCitationCount` (Semantic Scholar's metric) over raw ci
 6. **Ignoring software/library papers** — JAX, PyTorch, scikit-learn papers are highly cited and often relevant
 7. **Hallucinating citations** — LLMs invent plausible-sounding papers; verify every DOI/arXiv ID
 8. **Skipping reproducibility assessment** — accepting claims without checking if anyone can verify them
+9. **AI-tell prose** — "the literature reveals", "seminal/groundbreaking", "challenges remain", and Author-et-al-by-Author-et-al cadence make a review read as machine-written; run `references/prose_hygiene.md`
 
 ---
 
@@ -478,6 +489,7 @@ python ~/.claude/skills/literature-review-ml/scripts/generate_pdf.py \
 - `ml_venues.md` — venue tier list (ML + stats + SciML)
 - `search_strategies.md` — arXiv categories, S2 query tips, OpenAlex filters
 - `citation_styles.md` — APA / Nature / IEEE / ACM / Vancouver
+- `prose_hygiene.md` — AI-tell checklist for survey prose (stop-slop, academic-adapted)
 
 **Assets** (in `assets/`):
 - `review_template.md` — full review skeleton with PMDB, PRISMA flow, etc.
@@ -519,3 +531,4 @@ This skill provides:
 5. **Thematic synthesis with benchmark tables** as the synthesis output
 6. **Citation verification** for both arXiv IDs and DOIs
 7. **Survey-paper-grade PDF output** via pandoc
+8. **AI-tell-free prose** via an academic-adapted `stop-slop` pass on every synthesis paragraph
